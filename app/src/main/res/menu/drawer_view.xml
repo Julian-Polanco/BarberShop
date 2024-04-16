@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/nav_home"
+        android:id="@+id/nav_profile"
         android:icon="@drawable/ic_nav_person"
-        android:title="Inicio" />
-    <!-- Agrega más ítems de menú aquí -->
+        android:title="@string/tv_profile" />
+    <item
+        android:id="@+id/nav_photos"
+        android:icon="@drawable/ic_nav_photos"
+        android:title="@string/tv_photos" />
+    <item
+        android:id="@+id/nav_videos"
+        android:icon="@drawable/ic_nav_video"
+        android:title="@string/tv_video" />
+    <item
+        android:id="@+id/nav_web_site"
+        android:icon="@drawable/ic_nav_web_site"
+        android:title="@string/tv_web_site" />
+    <item
+        android:id="@+id/nav_buttons"
+        android:icon="@drawable/ic_nav_buttons"
+        android:title="@string/tv_buttons" />
 </menu>

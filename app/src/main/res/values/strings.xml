@@ -3,4 +3,16 @@
     <string name="profile">Perfil</string>
     <string name="close">Cerrar</string>
     <string name="open">Abrir</string>
+    <string name="profile_icon">profile_icon</string>
+    <string name="buttons_icon">buttons_icon</string>
+    <string name="video_icon">video_icon</string>
+    <string name="photos_icon">photos_icon</string>
+    <string name="tv_profile">Perfil</string>
+    <string name="tv_photos">Fotos</string>
+    <string name="tv_video">Video</string>
+    <string name="tv_web_site">Sitio Web</string>
+    <string name="tv_buttons">Botones</string>
+    <string name="name">Nombre: Julian Esteban Polanco</string>
+    <string name="studies">Estudios: Tecnologo en Analisis y Desarrollo de Sistemas de Información, Ingeniero de Software</string>
+    <string name="experience">Experiencia: 3 años de experiencia en software testing y automatización de pruebas</string>
 </resources>
