@@ -8,7 +8,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="brown_50">#EFEBE9</color>
-    <color name="colorPrimarySelected">#8D6E63</color>
-    <color name="colorSecondary">#BCAAA4</color>
-
+    <color name="color_secondary">#FF000000</color>
+    <color name="color_primary">#ececec</color>
+    <color name="color_third">#ffffff</color>
+    <color name="color_nav_text">#ffffff</color>
+    <color name="color_text">#000000</color>
+    <color name="ic_nav_color">#ffffff</color>
 </resources>

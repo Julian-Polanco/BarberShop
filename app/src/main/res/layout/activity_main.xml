@@ -18,9 +18,40 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1.5"
-            android:background="#EFEBE9"
+            android:background="@color/color_secondary"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:id="@+id/home_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="6dp"
+                    android:layout_weight="8"
+                    android:contentDescription="@string/home_icon"
+                    android:src="@drawable/ic_nav_home" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="@string/tv_home"
+                    android:textColor="@color/color_nav_text"
+                    android:textSize="12sp" />
+
+                <View
+                    android:id="@+id/home_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/white"
+                    android:visibility="gone" />
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/profile_layout"
@@ -33,18 +64,26 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="9"
+                    android:layout_margin="6dp"
+                    android:layout_weight="8"
                     android:contentDescription="@string/profile_icon"
                     android:src="@drawable/ic_nav_person" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:gravity="center"
                     android:text="@string/tv_profile"
-                    android:textColor="@color/black"
+                    android:textColor="@color/color_nav_text"
                     android:textSize="12sp" />
+
+                <View
+                    android:id="@+id/profile_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/white"
+                    android:visibility="gone" />
 
             </LinearLayout>
 
@@ -59,18 +98,26 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="9"
+                    android:layout_margin="6dp"
+                    android:layout_weight="8"
                     android:contentDescription="@string/photos_icon"
                     android:src="@drawable/ic_nav_photos" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:gravity="center"
                     android:text="@string/tv_photos"
-                    android:textColor="@color/black"
+                    android:textColor="@color/color_nav_text"
                     android:textSize="12sp" />
+
+                <View
+                    android:id="@+id/photos_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/white"
+                    android:visibility="gone" />
 
             </LinearLayout>
 
@@ -84,18 +131,26 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="9"
+                    android:layout_margin="6dp"
+                    android:layout_weight="8"
                     android:contentDescription="@string/video_icon"
                     android:src="@drawable/ic_nav_video" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:gravity="center"
                     android:text="@string/tv_video"
-                    android:textColor="@color/black"
+                    android:textColor="@color/color_nav_text"
                     android:textSize="12sp" />
+
+                <View
+                    android:id="@+id/video_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/white"
+                    android:visibility="gone" />
 
             </LinearLayout>
 
@@ -109,19 +164,26 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="9"
-                    android:contentDescription="@string/video_icon"
+                    android:layout_margin="6dp"
+                    android:layout_weight="8"
+                    android:contentDescription="@string/web_icon"
                     android:src="@drawable/ic_nav_web_site" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:gravity="center"
                     android:text="@string/tv_web_site"
-                    android:textColor="@color/black"
+                    android:textColor="@color/color_nav_text"
                     android:textSize="12sp" />
 
+                <View
+                    android:id="@+id/web_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/white"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <LinearLayout
@@ -134,19 +196,26 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="9"
+                    android:layout_margin="6dp"
+                    android:layout_weight="8"
                     android:contentDescription="@string/buttons_icon"
                     android:src="@drawable/ic_nav_buttons" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:gravity="center"
                     android:text="@string/tv_buttons"
-                    android:textColor="@color/black"
+                    android:textColor="@color/color_nav_text"
                     android:textSize="12sp" />
 
+                <View
+                    android:id="@+id/buttons_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/white"
+                    android:visibility="gone" />
             </LinearLayout>
 
         </LinearLayout>

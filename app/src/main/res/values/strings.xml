@@ -6,13 +6,28 @@
     <string name="profile_icon">profile_icon</string>
     <string name="buttons_icon">buttons_icon</string>
     <string name="video_icon">video_icon</string>
+    <string name="home_icon">home_icon</string>
     <string name="photos_icon">photos_icon</string>
     <string name="tv_profile">Perfil</string>
     <string name="tv_photos">Fotos</string>
     <string name="tv_video">Video</string>
     <string name="tv_web_site">Sitio Web</string>
+    <string name="tv_home">Inicio</string>
     <string name="tv_buttons">Botones</string>
     <string name="name">Nombre: Julian Esteban Polanco</string>
     <string name="studies">Estudios: Tecnologo en Analisis y Desarrollo de Sistemas de Información, Ingeniero de Software</string>
     <string name="experience">Experiencia: 3 años de experiencia en software testing y automatización de pruebas</string>
+    <string name="welcome">¡Bienvenido a Barbershop!</string>
+    <string name="description">Tu destino para un estilo impecable y una experiencia de barbería inolvidable. En Barbershop, nuestro equipo de expertos está aquí para brindarte cortes de cabello y afeitados de primera calidad que resalten tu estilo único. ¡Reserva tu cita hoy mismo y déjanos transformar tu look!</string>
+    <string name="barber_image_desc">baber image</string>
+    <string name="web_icon">web_icon</string>
+    <string name="simple_cut">Corte Basico</string>
+    <string name="simple_cut_and_beard">Corte Basico Con Barba</string>
+    <string name="specialized_cut">Corte Con Figuras</string>
+    <string name="only_beard">Solo Barba</string>
+    <string name="choose_your_style">Nuestros Servicios</string>
+    <string name="painted_hair">Corte Con Tintura</string>
+    <string name="eye_brows">Solo Cejas</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
