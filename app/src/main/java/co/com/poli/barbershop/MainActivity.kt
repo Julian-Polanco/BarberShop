@@ -1,7 +1,6 @@
 package co.com.poli.barbershop
 
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.LinearLayout
@@ -21,6 +20,8 @@ class MainActivity : AppCompatActivity() {
         R.id.home_layout to Pair(HomeFragment(), R.id.home_line),
         R.id.profile_layout to Pair(ProfileFragment(), R.id.profile_line),
         R.id.photos_layout to Pair(PhotosFragment(), R.id.photos_line),
+        R.id.video_layout to Pair(VideoFragment(), R.id.video_line),
+        R.id.web_layout to Pair(WebFragment(), R.id.web_line)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,6 +54,8 @@ class MainActivity : AppCompatActivity() {
                     R.id.nav_home -> changeFragment(HomeFragment(), R.id.home_line)
                     R.id.nav_profile -> changeFragment(ProfileFragment(), R.id.profile_line)
                     R.id.nav_photos -> changeFragment(PhotosFragment(), R.id.photos_line)
+                    R.id.nav_videos -> changeFragment(VideoFragment(), R.id.video_line)
+                    R.id.nav_web_site -> changeFragment(WebFragment(), R.id.web_line)
                 }
                 drawerLayout?.closeDrawer(GravityCompat.START)
 
