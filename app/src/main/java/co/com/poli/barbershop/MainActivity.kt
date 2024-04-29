@@ -66,7 +66,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun changeFragment(fragment: Fragment, lineId: Int) {
+
+    fun changeFragment(fragment: Fragment, lineId: Int) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.content_container, fragment)
             .commit()

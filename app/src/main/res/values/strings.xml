@@ -44,4 +44,6 @@
     <string name="confirm_password">Confirma la contraseña</string>
     <string name="studies_register">Estudios</string>
     <string name="experience_register">Experiencia</string>
+    <string name="logout">Cerrar Sesión</string>
+    <string name="go_profile">Ir al perfil</string>
 </resources>

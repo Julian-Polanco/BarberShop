@@ -12,6 +12,7 @@ import androidx.fragment.app.DialogFragment
 
 
 class CustomDialogFragment : DialogFragment() {
+    var listener: OnRegistrationSuccessListener? = null
 
     companion object {
         fun newInstance(fragmentType: String): CustomDialogFragment {
@@ -29,16 +30,11 @@ class CustomDialogFragment : DialogFragment() {
         val fragmentType = arguments?.getString("fragmentType")
         val fragment = when (fragmentType) {
             "LoginFragment" -> LoginFragment()
-            "RegisterFragment" -> RegisterFragment().apply {
-                listener = object : OnRegistrationSuccessListener {
-                    override fun onRegistrationSuccess() {
-                        activity?.runOnUiThread {
-                            dismiss()
-                            Toast.makeText(context, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show()
-                        }
-                    }
-                }
+            "RegisterFragment" ->
+                RegisterFragment().apply {
+                listener = this@CustomDialogFragment.listener
             }
+
             else -> throw IllegalArgumentException("Invalid fragment type")
         }
         childFragmentManager.beginTransaction().replace(R.id.fragment_container_dialog, fragment)

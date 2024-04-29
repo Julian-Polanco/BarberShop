@@ -6,9 +6,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
+import co.com.poli.barbershop.DataBase.DatabaseHelper
 
-class ButtonsFragment : Fragment() {
+class ButtonsFragment : Fragment(), OnRegistrationSuccessListener{
 
+    private lateinit var dbHelper: DatabaseHelper
+    private lateinit var loginButton: Button
+    private lateinit var registerButton: Button
+    private lateinit var profileButton: Button
+    private lateinit var logoutButton: Button
+    private lateinit var dialogFragment: CustomDialogFragment
+
+    override fun onRegistrationSuccess() {
+        activity?.runOnUiThread {
+            dialogFragment.dismiss()
+            Toast.makeText(context, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show()
+        }
+        updateButtonVisibility()
+
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -18,16 +35,57 @@ class ButtonsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val loginButton = view.findViewById<Button>(R.id.login_display_button)
+
+        dbHelper = DatabaseHelper(requireContext())
+
+        loginButton = view.findViewById(R.id.login_display_button)
+        registerButton = view.findViewById(R.id.sing_up_display_button)
+        profileButton = view.findViewById(R.id.profile_display_button)
+        logoutButton = view.findViewById(R.id.logout_display_button)
+
+        profileButton.setOnClickListener {
+            val mainActivity = activity as MainActivity
+            mainActivity.changeFragment(ProfileFragment(), R.id.profile_line)
+        }
+
+        logoutButton.setOnClickListener {
+            dbHelper.deleteToken("token")
+            updateButtonVisibility()
+        }
+
         loginButton.setOnClickListener {
             val dialogFragment = CustomDialogFragment.newInstance("LoginFragment")
             dialogFragment.show(parentFragmentManager, "LoginDialogFragment")
         }
 
-        val registerButton = view.findViewById<Button>(R.id.sing_up_display_button)
         registerButton.setOnClickListener {
-            val dialogFragment = CustomDialogFragment.newInstance("RegisterFragment")
+            dialogFragment = CustomDialogFragment.newInstance("RegisterFragment")
             dialogFragment.show(parentFragmentManager, "RegisterDialogFragment")
+            dialogFragment.listener = this
+
+        }
+
+        updateButtonVisibility()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateButtonVisibility()
+    }
+
+    fun updateButtonVisibility() {
+        val token = dbHelper.getToken("token")
+
+        if (token.isNotEmpty()) {
+            profileButton.visibility = View.VISIBLE
+            logoutButton.visibility = View.VISIBLE
+            loginButton.visibility = View.GONE
+            registerButton.visibility = View.GONE
+        } else {
+            loginButton.visibility = View.VISIBLE
+            registerButton.visibility = View.VISIBLE
+            profileButton.visibility = View.GONE
+            logoutButton.visibility = View.GONE
         }
     }
 

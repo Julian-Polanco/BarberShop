@@ -44,4 +44,9 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         cursor?.close()
         return ""
     }
+    fun deleteToken(tokenKey: String) {
+        val db = this.writableDatabase
+        db.delete(TABLE_NAME, "$KEY_NAME = ?", arrayOf(tokenKey))
+        db.close()
+    }
 }

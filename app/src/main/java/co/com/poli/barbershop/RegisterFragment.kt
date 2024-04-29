@@ -19,7 +19,7 @@ import org.json.JSONObject
 import java.io.IOException
 
 class RegisterFragment : Fragment() {
-    public var listener: OnRegistrationSuccessListener? = null
+    var listener: OnRegistrationSuccessListener? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,15 +34,18 @@ class RegisterFragment : Fragment() {
             val name = view.findViewById<EditText>(R.id.etName).text.toString()
             val email = view.findViewById<EditText>(R.id.etEmail).text.toString()
             val password = view.findViewById<EditText>(R.id.etPassword).text.toString()
-            val confirmPassword = view.findViewById<EditText>(R.id.etConfirmPassword).text.toString()
+            val confirmPassword =
+                view.findViewById<EditText>(R.id.etConfirmPassword).text.toString()
             val experience = view.findViewById<EditText>(R.id.etExperience).text.toString()
             val studies = view.findViewById<EditText>(R.id.etStudies).text.toString()
 
             if (name.isEmpty() || email.isEmpty() || password.isEmpty() || experience.isEmpty() || studies.isEmpty()) {
-                Toast.makeText(context, "Porfavor completa todos los campos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Porfavor completa todos los campos", Toast.LENGTH_SHORT)
+                    .show()
             } else {
                 if (password != confirmPassword) {
-                    Toast.makeText(context, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Las contraseñas no coinciden", Toast.LENGTH_SHORT)
+                        .show()
                     return@setOnClickListener
                 }
                 createUser(name, email, password, experience, studies)
@@ -50,7 +53,14 @@ class RegisterFragment : Fragment() {
         }
 
     }
-    private fun createUser(name: String, email: String, password: String, experience: String, studies: String) {
+
+    private fun createUser(
+        name: String,
+        email: String,
+        password: String,
+        experience: String,
+        studies: String
+    ) {
         val client = OkHttpClient()
 
         val formBody = FormBody.Builder()
@@ -83,7 +93,9 @@ class RegisterFragment : Fragment() {
                 val dbHelper = DatabaseHelper(context!!)
                 if (token != null) {
                     dbHelper.addToken("token", token)
-                    listener?.onRegistrationSuccess()
+                    activity?.runOnUiThread {
+                        listener?.onRegistrationSuccess()
+                    }
                 }
 
             }
