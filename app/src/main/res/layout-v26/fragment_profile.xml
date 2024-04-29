@@ -18,7 +18,7 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/ic_avatar" />
+            android:src="@drawable/icon_user" />
 
         <TextView
             android:id="@+id/tv_name_profile"
@@ -29,21 +29,21 @@
             android:justificationMode="inter_word"
             android:lineSpacingExtra="8dp"
             android:paddingTop="8dp"
-            android:text="@string/name"
             android:textSize="18sp"
             android:textColor="@color/black"/>
 
         <TextView
+            android:id="@+id/tv_studies_profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:justificationMode="inter_word"
             android:lineSpacingExtra="8dp"
             android:paddingTop="8dp"
-            android:text="@string/studies"
             android:textSize="18sp"
             android:textColor="@color/black"/>
 
         <TextView
+            android:id="@+id/tv_experience_profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:justificationMode="inter_word"
@@ -51,10 +51,18 @@
             android:layout_marginBottom="15dp"
             android:layout_marginTop="15dp"
             android:paddingTop="8dp"
-            android:text="@string/experience"
             android:textSize="18sp"
             android:textColor="@color/black"/>
 
+        <Button
+            android:id="@+id/btnLoginProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            android:layout_marginTop="16dp"/>
 
     </LinearLayout>
 

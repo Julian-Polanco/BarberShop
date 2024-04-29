@@ -30,7 +30,6 @@ class ButtonsFragment : Fragment(), OnRegistrationSuccessListener, OnLoginSucces
     }
 
     override fun onLoginSuccess() {
-        println("prueba login")
         activity?.runOnUiThread {
             dialogFragment.dismiss()
             Toast.makeText(context, "Usuario logueado correctamente", Toast.LENGTH_SHORT).show()
