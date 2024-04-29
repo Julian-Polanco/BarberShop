@@ -5,14 +5,86 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import co.com.poli.barbershop.data_base.DatabaseHelper
+import co.com.poli.barbershop.interfaces.OnLoginSuccess
+import okhttp3.Call
+import okhttp3.Callback
+import okhttp3.FormBody
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
+import org.json.JSONObject
+import java.io.IOException
 
 class LoginFragment : Fragment() {
+    var listener: OnLoginSuccess? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_login, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val loginButton = view.findViewById<Button>(R.id.btnLogin)
+        loginButton.setOnClickListener {
+            val email = view.findViewById<EditText>(R.id.etLoginEmail).text.toString()
+            val password = view.findViewById<EditText>(R.id.etLoginPassword).text.toString()
+
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(context, "Porfavor completa todos los campos", Toast.LENGTH_SHORT)
+                    .show()
+            } else {
+                login(email, password)
+            }
+        }
+    }
+
+    private fun login(
+        email: String,
+        password: String
+    ) {
+        val client = OkHttpClient()
+
+        val formBody = FormBody.Builder()
+            .add("email", email)
+            .add("password", password)
+            .build()
+
+        val request = Request.Builder()
+            .url("http://10.0.2.2:3000/user/login")
+            .post(formBody)
+            .build()
+
+        client.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                e.printStackTrace()
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                if (!response.isSuccessful) {
+                    throw IOException("Unexpected code $response")
+                }
+
+                val responseString = response.body?.string()
+                val jsonObject = responseString?.let { JSONObject(it) }
+                val token = jsonObject?.getString("token")
+
+                val dbHelper = DatabaseHelper(context!!)
+                if (token != null) {
+                    dbHelper.addToken("token", token)
+                    activity?.runOnUiThread {
+                        listener?.onLoginSuccess()
+                    }
+                }
+
+            }
+        })
     }
 
 }

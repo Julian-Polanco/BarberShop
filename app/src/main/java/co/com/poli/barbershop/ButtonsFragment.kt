@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
-import co.com.poli.barbershop.DataBase.DatabaseHelper
+import co.com.poli.barbershop.data_base.DatabaseHelper
+import co.com.poli.barbershop.interfaces.OnLoginSuccess
+import co.com.poli.barbershop.interfaces.OnRegistrationSuccessListener
 
-class ButtonsFragment : Fragment(), OnRegistrationSuccessListener{
+class ButtonsFragment : Fragment(), OnRegistrationSuccessListener, OnLoginSuccess {
 
     private lateinit var dbHelper: DatabaseHelper
     private lateinit var loginButton: Button
@@ -26,6 +28,16 @@ class ButtonsFragment : Fragment(), OnRegistrationSuccessListener{
         updateButtonVisibility()
 
     }
+
+    override fun onLoginSuccess() {
+        println("prueba login")
+        activity?.runOnUiThread {
+            dialogFragment.dismiss()
+            Toast.makeText(context, "Usuario logueado correctamente", Toast.LENGTH_SHORT).show()
+        }
+        updateButtonVisibility()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -54,14 +66,16 @@ class ButtonsFragment : Fragment(), OnRegistrationSuccessListener{
         }
 
         loginButton.setOnClickListener {
-            val dialogFragment = CustomDialogFragment.newInstance("LoginFragment")
+            dialogFragment = CustomDialogFragment.newInstance("LoginFragment")
             dialogFragment.show(parentFragmentManager, "LoginDialogFragment")
+            dialogFragment.loginListener = this
+
         }
 
         registerButton.setOnClickListener {
             dialogFragment = CustomDialogFragment.newInstance("RegisterFragment")
             dialogFragment.show(parentFragmentManager, "RegisterDialogFragment")
-            dialogFragment.listener = this
+            dialogFragment.registrationListener = this
 
         }
 
@@ -73,7 +87,7 @@ class ButtonsFragment : Fragment(), OnRegistrationSuccessListener{
         updateButtonVisibility()
     }
 
-    fun updateButtonVisibility() {
+    private fun updateButtonVisibility() {
         val token = dbHelper.getToken("token")
 
         if (token.isNotEmpty()) {

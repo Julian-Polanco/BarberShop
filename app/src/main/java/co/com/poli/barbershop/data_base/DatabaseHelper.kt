@@ -1,4 +1,4 @@
-package co.com.poli.barbershop.DataBase
+package co.com.poli.barbershop.data_base
 
 import android.content.ContentValues
 import android.content.Context

@@ -8,7 +8,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import co.com.poli.barbershop.DataBase.DatabaseHelper
+import co.com.poli.barbershop.data_base.DatabaseHelper
+import co.com.poli.barbershop.interfaces.OnRegistrationSuccessListener
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.FormBody
@@ -32,8 +33,8 @@ class RegisterFragment : Fragment() {
         val registerButton = view.findViewById<Button>(R.id.btnRegister)
         registerButton.setOnClickListener {
             val name = view.findViewById<EditText>(R.id.etName).text.toString()
-            val email = view.findViewById<EditText>(R.id.etEmail).text.toString()
-            val password = view.findViewById<EditText>(R.id.etPassword).text.toString()
+            val email = view.findViewById<EditText>(R.id.etLoginEmail).text.toString()
+            val password = view.findViewById<EditText>(R.id.etLoginPassword).text.toString()
             val confirmPassword =
                 view.findViewById<EditText>(R.id.etConfirmPassword).text.toString()
             val experience = view.findViewById<EditText>(R.id.etExperience).text.toString()

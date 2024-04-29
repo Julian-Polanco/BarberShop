@@ -1,18 +1,19 @@
 package co.com.poli.barbershop
 
-import android.content.res.Configuration
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import co.com.poli.barbershop.interfaces.OnLoginSuccess
+import co.com.poli.barbershop.interfaces.OnRegistrationSuccessListener
 
 
 class CustomDialogFragment : DialogFragment() {
-    var listener: OnRegistrationSuccessListener? = null
+    var registrationListener: OnRegistrationSuccessListener? = null
+    var loginListener: OnLoginSuccess? = null
 
     companion object {
         fun newInstance(fragmentType: String): CustomDialogFragment {
@@ -29,11 +30,15 @@ class CustomDialogFragment : DialogFragment() {
     ): View? {
         val fragmentType = arguments?.getString("fragmentType")
         val fragment = when (fragmentType) {
-            "LoginFragment" -> LoginFragment()
+            "LoginFragment" ->
+                LoginFragment().apply {
+                    listener = this@CustomDialogFragment.loginListener
+                }
+
             "RegisterFragment" ->
                 RegisterFragment().apply {
-                listener = this@CustomDialogFragment.listener
-            }
+                    listener = this@CustomDialogFragment.registrationListener
+                }
 
             else -> throw IllegalArgumentException("Invalid fragment type")
         }
