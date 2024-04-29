@@ -71,6 +71,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation(libs.glide)
+    implementation(libs.okhttp)
     kapt(libs.compiler)
 
 }

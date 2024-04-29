@@ -28,11 +28,20 @@
     <string name="choose_your_style">Nuestros Servicios</string>
     <string name="painted_hair">Corte Con Tintura</string>
     <string name="eye_brows">Solo Cejas</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="our_job">Nuestro trabajo</string>
     <string name="description_video">Transformación en segundos: corte de cabello en timelapse</string>
     <string name="enter_url">Ingresa La Url</string>
     <string name="search">Buscar</string>
     <string name="search_cut">Busca Cortes Aqui!</string>
+    <string name="self_management">Modulo Autogestión</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="sing_up">Registrase</string>
+    <string name="schedule_appointment">Agenda tu cita\n</string>
+    <string name="buy_gift_card">Compre tarjetas de regalo</string>
+    <string name="password">Contraseña</string>
+    <string name="email">Correo electronico</string>
+    <string name="name_register">Nombre</string>
+    <string name="confirm_password">Confirma la contraseña</string>
+    <string name="studies_register">Estudios</string>
+    <string name="experience_register">Experiencia</string>
 </resources>
